@@ -1,11 +1,13 @@
 server:
-  port: 8081
+  port: 8082
 
 spring:
   datasource:
-    url: jdbc:postgresql://postgres:5432/authdb
+    url: jdbc:postgresql://postgres:5432/productdb
     username: postgres
     password: password1
+  kafka:
+    bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS:kafka:9092}
   jpa:
     hibernate:
       ddl-auto: update

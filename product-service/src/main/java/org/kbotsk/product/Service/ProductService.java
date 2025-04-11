@@ -26,10 +26,11 @@ public class ProductService {
     }
 
     public Product create(Product product) {
+        Product savedProduct = productRepository.save(product);
         eventPublisher.sendProductCreatedEvent(
-                new ProductCreatedEvent(product.getId(), product.getName(), product.getPrice())
+                new ProductCreatedEvent(savedProduct.getId(), savedProduct.getName(), savedProduct.getPrice())
         );
-        return productRepository.save(product);
+        return savedProduct;
     }
 
     public Product update(Long id, Product updated) {

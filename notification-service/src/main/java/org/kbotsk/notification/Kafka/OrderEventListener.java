@@ -9,7 +9,11 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class OrderEventListener {
 
-    @KafkaListener(topics = "order-placed", groupId = "notification-group")
+    @KafkaListener(
+            topics = "order-placed",
+            groupId = "notification-group",
+            containerFactory = "orderEventsFactory"
+    )
     public void handleOrderPlaced(OrderPlacedEvent event) {
         log.info("📩 Получено событие из Kafka: {}", event);
         // Здесь можно, например, отправить email, сохранить лог, уведомить кого-то и т.д.

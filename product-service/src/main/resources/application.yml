@@ -8,6 +8,8 @@ springdoc:
     path: /swagger-ui.html
 
 spring:
+  application:
+    name: product-service
   datasource:
     url: jdbc:postgresql://postgres:5432/productdb
     username: postgres

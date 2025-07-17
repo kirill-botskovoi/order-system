@@ -2,6 +2,8 @@ server:
   port: 8080
 
 spring:
+  application:
+    name: notification-service
   kafka:
     bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS:kafka:9092}
     consumer:
@@ -12,3 +14,13 @@ spring:
       properties:
         spring.json.trusted.packages: "*"
         spring.json.value.default.type: org.kbotsk.notification.Dto.OrderPlacedEvent
+  mail:
+    host: email-smtp.eu-north-1.amazonaws.com
+    port: 587
+    username: AKIA3G5A4VPTSQJNLC55
+    password: BOs3Isceb8cPsrLLBGh6HHc55bcjwTAfIYO3AiV2WGYE
+    protocol: smtp
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+    from: kirill.botskovoi@gmail.com

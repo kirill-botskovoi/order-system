@@ -6,9 +6,12 @@ import lombok.RequiredArgsConstructor;
 import org.kbotsk.auth.Dto.AuthResponse;
 import org.kbotsk.auth.Dto.LoginRequest;
 import org.kbotsk.auth.Dto.RegisterRequest;
+import org.kbotsk.auth.Entity.User;
 import org.kbotsk.auth.Service.AuthService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -28,5 +31,11 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest request) {
         return ResponseEntity.ok(authService.login(request));
+    }
+
+    @Operation(summary = "Get all users")
+    @GetMapping("/users")
+    public List<User> getAllUsers(){
+        return authService.getAllUsers();
     }
 }

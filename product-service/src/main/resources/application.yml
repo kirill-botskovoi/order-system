@@ -21,7 +21,7 @@ spring:
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.yaml
-    enabled: true
+    enabled: false
   jpa:
     hibernate:
       ddl-auto: validate

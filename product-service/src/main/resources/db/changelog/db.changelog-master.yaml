@@ -5,7 +5,7 @@ databaseChangeLog:
       runOnChange: true
       changes:
         - createTable:
-            tableName: products
+            tableName: prrroducts
             columns:
               - column:
                   name: id
@@ -24,3 +24,10 @@ databaseChangeLog:
               - column:
                   name: quantity
                   type: integer
+  - changeSet:
+      id: 2
+      author: you
+      changes:
+        - renameTable:
+            oldTableName: prrroducts
+            newTableName: products
